@@ -224,10 +224,6 @@
   </div>
 </div>
 
-<div style="text-align:center; padding:8px 16px; background:#faf6ef; border-bottom:1px solid #e8dcc8;">
-  <a href="kuchiguse-app.html" style="display:inline-block; background:#c8a96e; color:#fff; padding:8px 20px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:bold;">🔍 口ぐせ診断・変換ツールはこちら →</a>
-</div>
-
 <div class="chat-area" id="chatArea">
   <div class="message ai">
     <div class="msg-avatar">🌸</div>
@@ -264,7 +260,6 @@
 </div>
 
 <script>
-// ── システムプロンプト ──────────────────────────────
 const SYSTEM_PROMPT = `あなたは「口ぐせセラピスト」大石ゆうじ本人のAIコーチです。温かく、具体的に、ユーザーの口ぐせに寄り添ってください。
 
 【大石ゆうじ プロフィール】
@@ -293,10 +288,8 @@ const SYSTEM_PROMPT = `あなたは「口ぐせセラピスト」大石ゆうじ
 ・一度に多くを変えようとせず、まず一つの言葉から始めることを勧める
 ・返答は300文字程度にまとめ、読みやすく改行を入れる`;
 
-// ── 会話履歴 ──────────────────────────────────────
 const history = [];
 
-// ── メッセージ送信 ────────────────────────────────
 async function sendMessage() {
   const input = document.getElementById('userInput');
   const sendBtn = document.getElementById('sendBtn');
@@ -317,9 +310,7 @@ async function sendMessage() {
 
     const response = await fetch('https://kuchiguse-api.makeabetter0917world.workers.dev', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         model: 'claude-haiku-4-5-20251001',
         max_tokens: 512,
@@ -351,14 +342,12 @@ async function sendMessage() {
   input.focus();
 }
 
-// ── サジェストボタン ──────────────────────────────
 function sendSuggestion(btn) {
   const input = document.getElementById('userInput');
   input.value = btn.textContent;
   sendMessage();
 }
 
-// ── キーハンドラ（Enter送信、Shift+Enterで改行） ──
 function handleKey(e) {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault();
@@ -366,52 +355,37 @@ function handleKey(e) {
   }
 }
 
-// ── テキストエリア自動リサイズ ────────────────────
 function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 100) + 'px';
 }
 
-// ── メッセージ追加 ────────────────────────────────
 function addMessage(role, text, isError = false) {
   const chatArea = document.getElementById('chatArea');
   const div = document.createElement('div');
   div.className = `message ${role}`;
-
   const avatarEmoji = role === 'ai' ? '🌸' : '👤';
   const bubbleContent = isError
     ? `<div class="error-msg">${text.replace(/\n/g, '<br>')}</div>`
     : `<div class="bubble">${formatText(text)}</div>`;
-
-  div.innerHTML = `
-    <div class="msg-avatar">${avatarEmoji}</div>
-    ${bubbleContent}
-  `;
-
+  div.innerHTML = `<div class="msg-avatar">${avatarEmoji}</div>${bubbleContent}`;
   chatArea.appendChild(div);
   chatArea.scrollTop = chatArea.scrollHeight;
 }
 
-// ── テキストフォーマット ──────────────────────────
 function formatText(text) {
   return text
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
     .replace(/\n/g, '<br>');
 }
 
-// ── タイピングインジケーター ──────────────────────
 function showTyping() {
   const chatArea = document.getElementById('chatArea');
   const id = 'typing-' + Date.now();
   const div = document.createElement('div');
   div.className = 'message ai';
   div.id = id;
-  div.innerHTML = `
-    <div class="msg-avatar">🌸</div>
-    <div class="typing-bubble">
-      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    </div>
-  `;
+  div.innerHTML = `<div class="msg-avatar">🌸</div><div class="typing-bubble"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
   chatArea.appendChild(div);
   chatArea.scrollTop = chatArea.scrollHeight;
   return id;
