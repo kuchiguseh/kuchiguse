@@ -15,216 +15,105 @@ body {
   justify-content: center;
   padding: 2rem 1rem;
 }
-.wrap {
-  width: 100%;
-  max-width: 640px;
-}
-.header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.header h1 {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 0.25rem;
-}
-.header p {
-  font-size: 13px;
-  color: #888;
-}
-.card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 1.75rem 1.5rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-.progress-bar {
-  height: 4px;
-  background: #eee;
-  border-radius: 2px;
-  margin-bottom: 1.5rem;
-}
-.progress-fill {
-  height: 100%;
-  background: #7F77DD;
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-.q-num {
-  font-size: 12px;
-  color: #aaa;
-  margin-bottom: 0.5rem;
-}
-.q-text {
-  font-size: 17px;
-  font-weight: 600;
-  color: #222;
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-}
-.choice {
-  display: block;
-  width: 100%;
-  text-align: left;
-  padding: 14px 16px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  border: 1.5px solid #e5e5e5;
-  background: #fafafa;
-  color: #333;
-  font-size: 15px;
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-  line-height: 1.5;
-}
-.choice:hover {
-  background: #f0effe;
-  border-color: #b0aaee;
-}
-.choice.selected {
-  border: 2px solid #7F77DD;
-  background: #EEEDFE;
-  color: #3C3489;
-}
-.next-btn {
-  margin-top: 1rem;
-  width: 100%;
-  padding: 14px;
-  border-radius: 10px;
-  border: none;
-  background: #7F77DD;
-  color: #fff;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  opacity: 0.4;
-  pointer-events: none;
-  transition: opacity 0.2s;
-}
-.next-btn.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.next-btn.active:hover {
-  background: #6b63cc;
-}
-.tiebreak-notice {
-  font-size: 14px;
-  color: #666;
-  background: #f7f5ff;
-  border-radius: 10px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.25rem;
-  line-height: 1.6;
-  border-left: 3px solid #7F77DD;
-}
-.result-header {
-  text-align: center;
-  margin-bottom: 1.5rem;
-}
-.result-emoji {
-  font-size: 48px;
-  margin-bottom: 0.5rem;
-}
-.type-badge {
-  display: inline-block;
-  padding: 5px 16px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
-}
-.type-D  { background: #FCEBEB; color: #A32D2D; }
-.type-I  { background: #FAEEDA; color: #854F0B; }
-.type-S  { background: #EAF3DE; color: #3B6D11; }
-.type-C  { background: #E6F1FB; color: #185FA5; }
-.type-DI,.type-ID { background: #FFF3E0; color: #854F0B; }
-.type-DS,.type-SD { background: #FDECEC; color: #A32D2D; }
-.type-DC,.type-CD { background: #E8F2FD; color: #185FA5; }
-.type-IS,.type-SI { background: #EDF7E4; color: #3B6D11; }
-.type-IC,.type-CI { background: #FEF9EC; color: #854F0B; }
-.type-SC,.type-CS { background: #E1F5EE; color: #0F6E56; }
-.result-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 0.35rem;
-}
-.result-sub {
-  font-size: 13px;
-  color: #888;
-  margin-bottom: 1rem;
-}
-.result-desc {
-  font-size: 15px;
-  color: #444;
-  line-height: 1.8;
-  margin-bottom: 1.25rem;
-}
-.section-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #999;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
-  text-transform: uppercase;
-}
-.kuchiguse-box {
-  background: #f9f9f9;
-  border-radius: 10px;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
-}
-.kuchiguse-label {
-  font-size: 12px;
-  color: #999;
-  margin-bottom: 0.4rem;
-}
-.kuchiguse-bad {
-  font-size: 15px;
-  color: #c0392b;
-  font-weight: 600;
-  line-height: 1.6;
-}
-.kuchiguse-good {
-  font-size: 15px;
-  color: #27ae60;
-  font-weight: 600;
-  line-height: 1.6;
-}
-.divider {
-  border: none;
-  border-top: 1px solid #eee;
-  margin: 1.25rem 0;
-}
-.restart-btn {
-  width: 100%;
-  padding: 13px;
-  border-radius: 10px;
-  border: 1.5px solid #ddd;
-  background: transparent;
-  color: #555;
-  font-size: 15px;
-  cursor: pointer;
-  margin-top: 0.5rem;
-  transition: background 0.15s;
-}
-.restart-btn:hover {
-  background: #f5f5f5;
-}
-.score-row {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 1.25rem;
-  flex-wrap: wrap;
-}
-.score-chip {
-  font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: #f0f0f0;
-  color: #666;
+.wrap { width: 100%; max-width: 640px; }
+.header { text-align: center; margin-bottom: 2rem; }
+.header h1 { font-size: 20px; font-weight: 600; color: #333; margin-bottom: 0.25rem; }
+.header p { font-size: 13px; color: #888; }
+.card { background: #fff; border-radius: 16px; padding: 1.75rem 1.5rem; box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+
+/* ── 診断画面 ── */
+.progress-bar { height: 4px; background: #eee; border-radius: 2px; margin-bottom: 1.5rem; }
+.progress-fill { height: 100%; background: #7F77DD; border-radius: 2px; transition: width 0.3s; }
+.q-num { font-size: 12px; color: #aaa; margin-bottom: 0.5rem; }
+.q-text { font-size: 17px; font-weight: 600; color: #222; margin-bottom: 1.25rem; line-height: 1.6; }
+.choice { display: block; width: 100%; text-align: left; padding: 14px 16px; margin-bottom: 10px; border-radius: 10px; border: 1.5px solid #e5e5e5; background: #fafafa; color: #333; font-size: 15px; cursor: pointer; transition: background 0.15s, border-color 0.15s; line-height: 1.5; }
+.choice:hover { background: #f0effe; border-color: #b0aaee; }
+.choice.selected { border: 2px solid #7F77DD; background: #EEEDFE; color: #3C3489; }
+.next-btn { margin-top: 1rem; width: 100%; padding: 14px; border-radius: 10px; border: none; background: #7F77DD; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; opacity: 0.4; pointer-events: none; transition: opacity 0.2s; }
+.next-btn.active { opacity: 1; pointer-events: auto; }
+.next-btn.active:hover { background: #6b63cc; }
+.tiebreak-notice { font-size: 14px; color: #666; background: #f7f5ff; border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; line-height: 1.6; border-left: 3px solid #7F77DD; }
+
+/* ── 結果画面：PDFレポート風 ── */
+.report-date { font-size: 12px; color: #999; text-align: right; margin-bottom: 6px; }
+.report-header { background: linear-gradient(135deg, #fff5f0 0%, #fff9f5 100%); border: 1.5px solid #f5c5a3; border-radius: 12px; padding: 16px 20px; margin-bottom: 16px; }
+.report-header .type-label { font-size: 12px; color: #e07040; font-weight: 600; margin-bottom: 4px; }
+.report-header .type-name { font-size: 24px; font-weight: 700; color: #c94a1a; margin-bottom: 6px; }
+.report-header .type-catch { font-size: 14px; color: #555; line-height: 1.6; }
+
+.section-bar { color: #fff; font-size: 13px; font-weight: 700; padding: 6px 14px; border-radius: 6px; margin: 14px 0 10px; }
+.bar-blue   { background: #4a7fa5; }
+.bar-orange { background: #e07040; }
+.bar-green  { background: #5a9a6a; }
+.bar-purple { background: #8a6ab5; }
+.bar-pink   { background: #d4507a; }
+.bar-teal   { background: #3a8a8a; }
+.bar-gray   { background: #777; }
+
+/* 回答傾向バー */
+.stats-wrap { background: #fff; border: 1px solid #eee; border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; }
+.stat-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+.stat-row:last-child { margin-bottom: 0; }
+.stat-label { width: 52px; font-size: 13px; font-weight: 600; color: #333; flex-shrink: 0; }
+.stat-bar-wrap { flex: 1; height: 13px; background: #f0f0f0; border-radius: 7px; overflow: hidden; }
+.stat-bar-fill { height: 100%; border-radius: 7px; transition: width 0.8s; }
+.fill-d { background: #e85a5a; } .fill-i { background: #f0a030; } .fill-s { background: #50b870; } .fill-c { background: #4a90d9; }
+.stat-count { width: 30px; font-size: 13px; color: #666; text-align: right; flex-shrink: 0; }
+
+/* TOP3タグ */
+.top3-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 4px; }
+.top3-tag { padding: 7px 16px; border-radius: 20px; font-size: 14px; font-weight: 600; }
+.tag-d { background: #fde8e8; color: #c03030; } .tag-i { background: #fef0d8; color: #b06010; }
+.tag-s { background: #e8f5ec; color: #2a7a3a; } .tag-c { background: #e0eefa; color: #1a60a0; }
+
+/* 言い換え */
+.rephrase-table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+.rephrase-table tr { border-bottom: 1px solid #f0f0f0; }
+.rephrase-table td { padding: 10px 6px; font-size: 14px; vertical-align: middle; }
+.rephrase-bad { color: #555; width: 36%; }
+.rephrase-arrow { color: #e07040; font-weight: 700; width: 8%; text-align: center; }
+.rephrase-good { color: #1a60a0; font-weight: 600; background: #f0f7ff; border-radius: 6px; padding: 8px 10px !important; }
+
+/* 自分を整える口ぐせ */
+.self-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin: 8px 0; }
+.self-card { background: #f9f9f9; border-radius: 8px; padding: 12px 10px; text-align: center; }
+.self-main { font-size: 13px; font-weight: 700; color: #333; line-height: 1.5; margin-bottom: 5px; }
+.self-ex { font-size: 12px; color: #888; }
+
+/* スクリプト */
+.script-row { background: #f9f9f9; border-radius: 8px; padding: 12px 14px; margin-bottom: 8px; }
+.script-tag { display: inline-block; background: #4a7fa5; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 10px; border-radius: 4px; margin-bottom: 5px; }
+.script-main { font-size: 14px; color: #222; font-weight: 600; margin-bottom: 3px; }
+.script-ex { font-size: 12px; color: #888; }
+
+/* 実践メニュー */
+.practice-list { list-style: none; padding: 0; margin: 8px 0; }
+.practice-list li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #333; display: flex; gap: 8px; }
+.practice-list li::before { content: '✓'; color: #e07040; font-weight: 700; flex-shrink: 0; }
+
+/* DISCとは */
+.disc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 10px 0; }
+.disc-card { border-radius: 8px; padding: 12px 14px; }
+.disc-d { background: #fde8e8; border: 1px solid #f5c0c0; } .disc-i { background: #fef0d8; border: 1px solid #f5d8a0; }
+.disc-s { background: #e8f5ec; border: 1px solid #b0d8b8; } .disc-c { background: #e0eefa; border: 1px solid #a0c8f0; }
+.disc-type { font-size: 13px; font-weight: 700; margin-bottom: 3px; color: #333; }
+.disc-sub  { font-size: 12px; color: #666; margin-bottom: 5px; }
+.disc-ex   { font-size: 12px; color: #444; line-height: 1.7; }
+
+/* プロフィール */
+.profile-box { border: 1px solid #eee; border-radius: 10px; padding: 14px 16px; margin: 14px 0; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.profile-name { font-size: 13px; font-weight: 700; color: #e07040; margin-bottom: 4px; }
+.profile-desc { font-size: 13px; color: #444; line-height: 1.7; }
+.seminar-title { font-size: 13px; font-weight: 700; color: #4a7fa5; margin-bottom: 6px; }
+.seminar-desc  { font-size: 13px; color: #444; line-height: 1.7; }
+.report-footer { background: #4a7fa5; color: #fff; text-align: center; font-size: 12px; padding: 10px; border-radius: 8px; margin-top: 16px; }
+.restart-btn { width: 100%; padding: 13px; border-radius: 10px; border: 1.5px solid #ddd; background: transparent; color: #555; font-size: 15px; cursor: pointer; margin-top: 12px; transition: background 0.15s; }
+.restart-btn:hover { background: #f5f5f5; }
+
+@media (max-width: 480px) {
+  .self-grid { grid-template-columns: 1fr; }
+  .disc-grid  { grid-template-columns: 1fr; }
+  .profile-box { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -301,90 +190,129 @@ const questions = [
   ]}
 ];
 
-const tieQuestions = {
-  "DI": { text: "何かを達成した時、あなたはどちらに近い？", choices: [
-    { text: "「やった！次はもっと大きな目標へ」", type: "D" },
-    { text: "「みんなで喜びたい！早く報告しよう」", type: "I" }
-  ]},
-  "DS": { text: "仕事やプロジェクトで大切にしていることは？", choices: [
-    { text: "スピードと結果", type: "D" },
-    { text: "チームの安定と信頼", type: "S" }
-  ]},
-  "DC": { text: "決断する時のスタイルは？", choices: [
-    { text: "直感で素早く決める", type: "D" },
-    { text: "データを集めてから慎重に決める", type: "C" }
-  ]},
-  "IS": { text: "楽しい時間を過ごすとき、どちらに近い？", choices: [
-    { text: "みんなでワイワイしていたい", type: "I" },
-    { text: "親しい人と静かに過ごしたい", type: "S" }
-  ]},
-  "IC": { text: "新しいアイデアが浮かんだ時、あなたは？", choices: [
-    { text: "すぐに周りに話して盛り上げたい", type: "I" },
-    { text: "まず整理して検証してから共有したい", type: "C" }
-  ]},
-  "SC": { text: "トラブルが起きた時、まず何をしますか？", choices: [
-    { text: "周りを安心させて落ち着かせる", type: "S" },
-    { text: "原因を分析して対策を考える", type: "C" }
-  ]}
+// ── タイブレーク質問（2タイプ決戦・6パターン）──
+const tieQ2 = {
+  "DI": { text: "大事な場面で自然に出る行動は？",
+    choices: [{ text: "自分が前に出て引っ張る", type: "D" }, { text: "みんなを盛り上げて動かす", type: "I" }] },
+  "DS": { text: "チームで動くとき、あなたは？",
+    choices: [{ text: "スピードを上げて先導する", type: "D" }, { text: "ペースを合わせて支える", type: "S" }] },
+  "DC": { text: "決断する時のスタイルは？",
+    choices: [{ text: "直感で素早く決める", type: "D" }, { text: "データを集めて慎重に決める", type: "C" }] },
+  "IS": { text: "大切な人への接し方は？",
+    choices: [{ text: "一緒に楽しいことをする", type: "I" }, { text: "そばでそっと寄り添う", type: "S" }] },
+  "IC": { text: "新しいアイデアが浮かんだら？",
+    choices: [{ text: "すぐ周りに話して盛り上げる", type: "I" }, { text: "まず整理して検証してから共有する", type: "C" }] },
+  "SC": { text: "トラブルが起きた時、まず何をする？",
+    choices: [{ text: "周りを安心させて落ち着かせる", type: "S" }, { text: "原因を分析して対策を考える", type: "C" }] }
 };
 
-const typeInfo = {
+// 3タイプ同点：第1戦ペア
+const tie3first = { "DIS": ["D","I"], "DIC": ["D","I"], "DSC": ["D","S"], "ISC": ["I","S"] };
+
+// ── タイプデータ ──
+const typeData = {
   D: {
-    name: "Dタイプ（主導型）",
-    emoji: "🦁",
-    sub: "行動力・決断力・チャレンジ精神",
-    desc: "あなたはスピードと結果を大切にする行動派です。困難な状況でも積極的に動き、リーダーシップを発揮します。",
-    bad: "「どうせ無理」「やってもしょうがない」「まあいいか」",
-    good: "「やってみよう！」「まずは動いてみる」「私ならできる」"
+    title: "行動派のあなた (D)", emoji: "🦁", tag: "tag-d", barClass: "fill-d",
+    catch: "自信は魅力。その強さに思いやりを少し足せば、信頼はさらに深まる。",
+    humor: "行動力と決断力にあふれるリーダー気質です。目標に向かって一直線に動ける反面、「なんでやらないの？」「早くして」という口ぐせが出やすいことも。あなたが動くと空気が"やる気色"に変わります。",
+    top: ["よし、やってみよう！","今がチャンス！","協力こそ最速の方法"],
+    rephrase: [
+      {bad:"「こうして！」", good:"「こうしてもらえると助かります」"},
+      {bad:"「早くして」", good:"「〇時までにお願いできますか？」"},
+      {bad:"「それ違う」", good:"「こうすると、もっと良くなります」"}
+    ],
+    self: ["私は一人でやらなくていい","人の力を借りても成果は出せる","協力こそ最速の方法"],
+    selfEx: ["例）「みんなと一緒に進もう」","例）「頼ることも強さのひとつ」","例）「チームで動くと早く進む」"],
+    scripts: [
+      {tag:"相談", text:"実現するには何が必要か、一緒に考えませんか？", ex:"例）「あなたの意見も聞かせてください」"},
+      {tag:"お願い", text:"これを〇時までにお願いできると助かります", ex:"例）「期限を決めて動きましょう」"}
+    ],
+    practice: ["朝一番に「〇〇な一日になる！」と声に出す","週替わりでテーマ口ぐせを決める","3日・3週間・3ヶ月の習慣化マイルストーンを決める"],
+    sectionColor: "bar-orange"
   },
   I: {
-    name: "Iタイプ（感化型）",
-    emoji: "🌟",
-    sub: "明るさ・社交性・表現力・熱意",
-    desc: "あなたは人と関わることが大好きで、その場を明るく盛り上げる天才です。コミュニケーション能力が高く、周りを元気にします。",
-    bad: "「どうせ誰もわかってくれない」「盛り上がらない」「つまらない」",
-    good: "「楽しんでいこう！」「一緒にやろう！」「絶対うまくいく！」"
+    title: "社交派のあなた (I)", emoji: "🌟", tag: "tag-i", barClass: "fill-i",
+    catch: "周りをポジティブに染める"ひまわり"です。明るさを、安心と行動の後押しに変えて届けよう。",
+    humor: "明るさと社交性があふれ、その場を盛り上げる天才です。楽観的で表現力豊かな反面、「たぶん大丈夫」「なんとかなる」という根拠なしの言葉が出やすいことも。あなたの笑顔が周りの背中を押します。",
+    top: ["楽しみだね！","それ素敵！","こうすればうまくいく！"],
+    rephrase: [
+      {bad:"「たぶん大丈夫」", good:"「○○すれば、きっと大丈夫！」"},
+      {bad:"「とにかくやってみよう！」", good:"「まず準備してから、やってみよう！」"},
+      {bad:"「なんとかなる」", good:"「工夫すれば、できるよ！」"}
+    ],
+    self: ["私は焦らなくても魅力的","根拠を添えるともっと伝わる","明るさは"準備"とセットで輝く"],
+    selfEx: ["例）「今日も私らしくいこう」","例）「なぜなら〜だから」","例）「まず確認してから動こう」"],
+    scripts: [
+      {tag:"相談", text:"こうすればうまくいくと思うんだけど、どうかな？", ex:"例）「一緒に考えてもらえると嬉しいな」"},
+      {tag:"お願い", text:"○○を用意してから、お願いできる？", ex:"例）「準備できたら声かけてね」"}
+    ],
+    practice: ["家族・友人に「私の口ぐせって何？」と聞いてみる","好きな音楽＋口ぐせでテンションを上げる","週に一度、ポジティブしりとりで遊ぶ"],
+    sectionColor: "bar-pink"
   },
   S: {
-    name: "Sタイプ（安定型）",
-    emoji: "🌿",
-    sub: "穏やかさ・協調性・誠実さ・継続力",
-    desc: "あなたは周りへの気配りと安定感が強みです。チームの調和を大切にし、コツコツと継続する力を持っています。",
-    bad: "「でも…」「私なんて…」「迷惑かけたくない」",
-    good: "「大丈夫、焦らなくていい」「一歩一歩進めばいい」「みんなで乗り越えよう」"
+    title: "思いやり派のあなた (S)", emoji: "🌿", tag: "tag-s", barClass: "fill-s",
+    catch: "あなたの言葉はホットミルクみたいにじんわり温まります。その優しさは強さ。自分にも同じ温かさを向けよう。",
+    humor: "協調性と思いやりにあふれた、チームの安定剤です。周りへの気配りが得意な反面、「ごめんなさい」「私なんて…」という自己否定の口ぐせが出やすいことも。あなたの温かさが場を安心させます。",
+    top: ["大丈夫？","いつもありがとう","無理しないでね"],
+    rephrase: [
+      {bad:"「ごめんなさい」", good:"「ありがとう」"},
+      {bad:"「私なんて…」", good:"「私にもできる」"},
+      {bad:"「迷惑かけちゃうかも」", good:"「助けてもらえて、うれしい」"}
+    ],
+    self: ["私はまわりに安心を届けられる","「私は」を主語にそっと伝える","休むことも大事な一歩"],
+    selfEx: ["例）「あなたの存在が力になる」","例）「私はこう感じています」","例）「今日はゆっくりしよう」"],
+    scripts: [
+      {tag:"相談", text:"ありがとうございます。少しご相談させてください", ex:"例）「聞いてもらえると嬉しいです」"},
+      {tag:"お願い", text:"お願いできると心強いです", ex:"例）「一緒にやれると安心します」"}
+    ],
+    practice: ["感情が揺れた瞬間に「大丈夫」とつぶやく","「ありがとう日記」を毎晩書く","自然の中で深呼吸しながら口ぐせを唱える"],
+    sectionColor: "bar-green"
   },
   C: {
-    name: "Cタイプ（慎重型）",
-    emoji: "🔍",
-    sub: "分析力・几帳面さ・品質重視",
-    desc: "あなたは物事を深く考え、正確さと質にこだわる分析派です。データや事実をもとに丁寧に判断し、信頼される存在です。",
-    bad: "「もっと調べないと…」「まだ準備が足りない」「失敗したらどうしよう」",
-    good: "「準備は十分、あとは実行するだけ」「分析済み、自信を持って進もう」"
+    title: "こだわり派のあなた (C)", emoji: "🔍", tag: "tag-c", barClass: "fill-c",
+    catch: "あなたの丁寧さは四つ葉のクローバーみたいな宝物です。正確さは強み。その安心感を育てる言葉に変えていこう。",
+    humor: "分析力と正確さにこだわる、品質の番人です。丁寧で几帳面な反面、「それは違います」「ルールでは…」という正論が出やすいことも。あなたの丁寧さが周りに安心を与えます。",
+    top: ["ちゃんと確認しよう","段取りが大事","美しく仕上げたい"],
+    rephrase: [
+      {bad:"「それは違います」", good:"「こういう見方もあります」"},
+      {bad:"「ルールでは…」", good:"「ルールでは○○ですが、どうしましょうか？」"},
+      {bad:"「間違ってます」", good:"「ここをこう直すと、正しくなります」"}
+    ],
+    self: ["私は完璧でなくても価値がある","正しさより関係性が大事な時もある","事実と意見は分けて伝えられる"],
+    selfEx: ["例）「今日も丁寧にできた」","例）「まず相手の気持ちを聞こう」","例）「私の考えでは〜です」"],
+    scripts: [
+      {tag:"相談", text:"こういう方法もあるのですが、どう思われますか？", ex:"例）「確認してから進めましょう」"},
+      {tag:"お願い", text:"この手順でやってもらえると助かります", ex:"例）「段取りを確認させてください」"}
+    ],
+    practice: ["今日の口ぐせを寝る前にメモする","ネガティブ→ポジティブ置き換え辞書を作る","ZOOM録音やスマホで自分の話し方をチェックする"],
+    sectionColor: "bar-teal"
   }
 };
 
-const combinedInfo = {
-  "DI": { name: "D×I 複合タイプ（行動する影響者）", emoji: "🔥", desc: "スピードと熱量を兼ね備えた、強力なリーダータイプです。結果にこだわりながらも人を巻き込む力があります。" },
-  "DS": { name: "D×S 複合タイプ（頼れる行動者）", emoji: "💪", desc: "スピーディに動きながらも、周りへの配慮を忘れない頼もしいタイプです。チームを引っ張りながら安定もつくれます。" },
-  "DC": { name: "D×C 複合タイプ（戦略的実行者）", emoji: "🎯", desc: "決断力と分析力を両立した、計画的かつ行動力のあるタイプです。緻密に考えてから素早く動く強みがあります。" },
-  "IS": { name: "I×S 複合タイプ（温かい調和者）", emoji: "🌸", desc: "明るさと温かさを持つ、誰からも好かれる人望タイプです。人間関係を大切にし、チームに笑顔と安心感をもたらします。" },
-  "IC": { name: "I×C 複合タイプ（論理的な表現者）", emoji: "✨", desc: "アイデアと分析力を掛け合わせた、説得力のある伝え手です。楽しく話しながらも根拠のあるコミュニケーションが得意。" },
-  "SC": { name: "S×C 複合タイプ（堅実な支援者）", emoji: "🛡️", desc: "誠実さと几帳面さを兼ね備えた、信頼の厚いサポータータイプです。コツコツと丁寧に、周りを支え続けます。" }
-};
-
-let scores = { D: 0, I: 0, S: 0, C: 0 };
+// ── 状態変数 ──
+let scores = { D:0, I:0, S:0, C:0 };
 let currentQ = 0;
-let phase = "main";
+let phase = "main"; // main / tiebreak / result
 let selectedChoice = null;
-let tieKey = null;
+let tbQueue = [];   // 対決キュー [['D','I'], [null,'S']]
+let tbScores = { D:0, I:0, S:0, C:0 };
 
 function getTiedTypes() {
   const max = Math.max(scores.D, scores.I, scores.S, scores.C);
   return Object.keys(scores).filter(t => scores[t] === max);
 }
 
-function getTieKey(types) {
-  return types.slice().sort().join("");
+function sortKey(types) { return types.slice().sort().join(""); }
+
+function buildQueue(tied) {
+  if (tied.length === 2) return [[tied[0], tied[1]]];
+  if (tied.length === 3) {
+    const key = sortKey(tied);
+    const first = tie3first[key] || [tied[0], tied[1]];
+    const rem = tied.find(t => !first.includes(t));
+    return [[first[0], first[1]], [null, rem]];
+  }
+  return [[tied[0], tied[1]]];
 }
 
 function render() {
@@ -394,25 +322,23 @@ function render() {
   else if (phase === "result") renderResult(app);
 }
 
+// ── 通常質問 ──
 function renderMain(app) {
   const q = questions[currentQ];
-  const total = questions.length;
-  const pct = Math.round((currentQ / total) * 100);
+  const pct = Math.round((currentQ / questions.length) * 100);
   app.innerHTML = `
     <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
-    <div class="q-num">質問 ${currentQ + 1} / ${total}</div>
+    <div class="q-num">質問 ${currentQ + 1} / ${questions.length}</div>
     <div class="q-text">${q.text}</div>
     ${q.choices.map((c, i) => `<button class="choice" onclick="selectChoice(${i})">${c.text}</button>`).join("")}
-    <button class="next-btn" id="nxt" onclick="nextQ()">${currentQ === questions.length - 1 ? '結果を見る' : '次へ'}</button>
+    <button class="next-btn" id="nxt" onclick="nextQ()">${currentQ === questions.length - 1 ? "結果を見る" : "次へ"}</button>
   `;
   selectedChoice = null;
 }
 
 function selectChoice(i) {
   selectedChoice = i;
-  document.querySelectorAll(".choice").forEach((el, idx) => {
-    el.classList.toggle("selected", idx === i);
-  });
+  document.querySelectorAll(".choice").forEach((el, idx) => el.classList.toggle("selected", idx === i));
   const nxt = document.getElementById("nxt");
   nxt.classList.add("active");
   nxt.textContent = currentQ === questions.length - 1 ? "結果を見る" : "次へ";
@@ -420,119 +346,159 @@ function selectChoice(i) {
 
 function nextQ() {
   if (selectedChoice === null) return;
-  const type = questions[currentQ].choices[selectedChoice].type;
-  scores[type]++;
+  scores[questions[currentQ].choices[selectedChoice].type]++;
   currentQ++;
   selectedChoice = null;
   if (currentQ >= questions.length) {
     const tied = getTiedTypes();
     if (tied.length === 1) { phase = "result"; render(); return; }
-    if (tied.length === 2) {
-      const key = getTieKey(tied);
-      if (tieQuestions[key]) { tieKey = key; phase = "tiebreak"; render(); return; }
-    }
-    phase = "result"; render();
-  } else {
-    render();
-  }
+    tbQueue = buildQueue(tied);
+    tbScores = { D:0, I:0, S:0, C:0 };
+    phase = "tiebreak"; render();
+  } else { render(); }
 }
 
+// ── タイブレーク ──
 function renderTiebreak(app) {
-  const tq = tieQuestions[tieKey];
-  const types = tieKey.split("");
+  if (tbQueue.length === 0) { phase = "result"; render(); return; }
+  const [tA, tB] = tbQueue[0];
+  const key = sortKey([tA, tB]);
+  const q = tieQ2[key];
+  if (!q) { tbQueue.shift(); renderTiebreak(app); return; }
   app.innerHTML = `
     <div class="tiebreak-notice">
-      ${types[0]}タイプと${types[1]}タイプが同点です。もう1問だけ答えてください 🌸
+      🌸 ${tA}・${tB}タイプが同点です。追加質問に答えてください
     </div>
-    <div class="q-text">${tq.text}</div>
-    ${tq.choices.map((c, i) => `<button class="choice" onclick="selectTie(${i},'${c.type}')">${c.text}</button>`).join("")}
+    <div class="q-text">${q.text}</div>
+    ${q.choices.map((c, i) => `<button class="choice" onclick="selectTie(${i},'${c.type}')">${c.text}</button>`).join("")}
   `;
 }
 
 function selectTie(i, type) {
-  document.querySelectorAll(".choice").forEach((el, idx) => {
-    el.classList.toggle("selected", idx === i);
-  });
+  document.querySelectorAll(".choice").forEach((el, idx) => el.classList.toggle("selected", idx === i));
+  tbScores[type]++;
+  const winner = type;
+  tbQueue.shift();
+  if (tbQueue.length > 0) {
+    if (tbQueue[0][0] === null) tbQueue[0][0] = winner;
+    else if (tbQueue[0][1] === null) tbQueue[0][1] = winner;
+  }
   setTimeout(() => {
-    scores[type]++;
-    phase = "result";
-    render();
-  }, 400);
+    if (tbQueue.length === 0) {
+      // タイブレーク結果をscoresに反映
+      Object.keys(tbScores).forEach(t => { scores[t] += tbScores[t]; });
+      phase = "result"; render();
+    } else { renderTiebreak(document.getElementById("app")); }
+  }, 350);
 }
 
+// ── 結果画面（PDF風） ──
 function renderResult(app) {
-  const tied = getTiedTypes();
-  let html = "";
+  const max = Math.max(scores.D, scores.I, scores.S, scores.C);
+  const main = Object.keys(scores).find(t => scores[t] === max);
+  const d = typeData[main];
+  const today = new Date().toLocaleDateString("ja-JP", {year:"numeric",month:"long",day:"numeric"});
+  const maxScore = Math.max(1, ...Object.values(scores));
 
-  if (tied.length === 1) {
-    const t = tied[0];
-    const info = typeInfo[t];
-    html = `
-      <div class="result-header">
-        <div class="result-emoji">${info.emoji}</div>
-        <div class="type-badge type-${t}">${info.name}</div>
-        <div class="result-sub">${info.sub}</div>
-      </div>
-      <div class="result-desc">${info.desc}</div>
-      <hr class="divider">
-      <div class="section-label">気をつけたい口ぐせ</div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-bad">${info.bad}</div>
-      </div>
-      <div class="section-label">意識したいポジティブな口ぐせ</div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-good">${info.good}</div>
-      </div>
-    `;
-  } else {
-    const key = getTieKey(tied);
-    const combined = combinedInfo[key] || { name: tied.join("×") + " 複合タイプ", emoji: "✨", desc: "複数のタイプの特徴を持つバランス型です。" };
-    const t1 = typeInfo[tied[0]];
-    const t2 = typeInfo[tied[1]];
-    html = `
-      <div class="result-header">
-        <div class="result-emoji">${combined.emoji}</div>
-        <div class="type-badge type-${key}">${combined.name}</div>
-      </div>
-      <div class="result-desc">${combined.desc}</div>
-      <hr class="divider">
-      <div class="section-label">気をつけたい口ぐせ</div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-label">${tied[0]}タイプ傾向</div>
-        <div class="kuchiguse-bad">${t1.bad}</div>
-      </div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-label">${tied[1]}タイプ傾向</div>
-        <div class="kuchiguse-bad">${t2.bad}</div>
-      </div>
-      <div class="section-label" style="margin-top:1rem;">意識したいポジティブな口ぐせ</div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-label">${tied[0]}タイプ傾向</div>
-        <div class="kuchiguse-good">${t1.good}</div>
-      </div>
-      <div class="kuchiguse-box">
-        <div class="kuchiguse-label">${tied[1]}タイプ傾向</div>
-        <div class="kuchiguse-good">${t2.good}</div>
-      </div>
-    `;
-  }
+  const statsHTML = `
+    <div class="stats-wrap">
+      <div class="section-bar bar-blue" style="margin-top:0;">回答傾向（DISC選択数）</div>
+      ${["D","I","S","C"].map(k => `
+        <div class="stat-row">
+          <div class="stat-label">${k}タイプ</div>
+          <div class="stat-bar-wrap"><div class="stat-bar-fill ${typeData[k].barClass}" style="width:${Math.round(100*(scores[k]||0)/maxScore)}%"></div></div>
+          <div class="stat-count">${scores[k]||0}問</div>
+        </div>`).join("")}
+    </div>`;
 
-  html += `
-    <hr class="divider">
-    <div class="score-row">
-      <span class="score-chip">D: ${scores.D}点</span>
-      <span class="score-chip">I: ${scores.I}点</span>
-      <span class="score-chip">S: ${scores.S}点</span>
-      <span class="score-chip">C: ${scores.C}点</span>
+  const top3HTML = `
+    <div class="section-bar ${d.sectionColor}">あなたがよく使う口ぐせ（TOP3）</div>
+    <div class="top3-wrap">
+      ${d.top.map(t => `<span class="top3-tag ${d.tag}">${t}</span>`).join("")}
+    </div>`;
+
+  const rephraseHTML = `
+    <div class="section-bar ${d.sectionColor}">口ぐせ処方箋</div>
+    <table class="rephrase-table">
+      ${d.rephrase.map(r => `
+        <tr>
+          <td class="rephrase-bad">${r.bad}</td>
+          <td class="rephrase-arrow">→</td>
+          <td class="rephrase-good">${r.good}</td>
+        </tr>`).join("")}
+    </table>`;
+
+  const selfHTML = `
+    <div class="section-bar ${d.sectionColor}">自分を整える口ぐせ</div>
+    <div class="self-grid">
+      ${d.self.map((s, i) => `
+        <div class="self-card">
+          <div class="self-main">${s}</div>
+          <div class="self-ex">${d.selfEx[i] || ""}</div>
+        </div>`).join("")}
+    </div>`;
+
+  const scriptHTML = `
+    <div class="section-bar ${d.sectionColor}">場面別スクリプト</div>
+    ${d.scripts.map(s => `
+      <div class="script-row">
+        <span class="script-tag">${s.tag}</span>
+        <div class="script-main">${s.text}</div>
+        <div class="script-ex">${s.ex}</div>
+      </div>`).join("")}`;
+
+  const practiceHTML = `
+    <div class="section-bar bar-gray">今日からの実践メニュー</div>
+    <ul class="practice-list">
+      ${d.practice.map(p => `<li>${p}</li>`).join("")}
+    </ul>`;
+
+  const discHTML = `
+    <div class="section-bar bar-blue">DISCとは？</div>
+    <p style="font-size:13px;color:#444;margin-bottom:10px;line-height:1.6;">DISC理論は、人の行動パターンを4つのタイプに分類する心理モデルです。あなたの口ぐせには、このタイプ特有の思考パターンが表れています。</p>
+    <div class="disc-grid">
+      <div class="disc-card disc-d"><div class="disc-type">D（主導型）</div><div class="disc-sub">行動力・決断力・リーダー気質</div><div class="disc-ex">・「早くやろう！」<br>・「こうすれば絶対うまくいく」</div></div>
+      <div class="disc-card disc-i"><div class="disc-type">I（感化型）</div><div class="disc-sub">社交的・楽観的・表現力豊か</div><div class="disc-ex">・「楽しみだね！」<br>・「なんとかなる！」</div></div>
+      <div class="disc-card disc-s"><div class="disc-type">S（安定型）</div><div class="disc-sub">協調性・思いやり・穏やか</div><div class="disc-ex">・「大丈夫？」<br>・「いつもありがとう」</div></div>
+      <div class="disc-card disc-c"><div class="disc-type">C（慎重型）</div><div class="disc-sub">分析力・正確さ・こだわり強め</div><div class="disc-ex">・「ちゃんと確認しよう」<br>・「段取りが大事」</div></div>
+    </div>`;
+
+  const profileHTML = `
+    <div class="section-bar bar-gray">講師プロフィール・セミナーのご案内</div>
+    <div class="profile-box">
+      <div>
+        <div class="profile-name">口ぐせセラピスト 大石ゆうじ</div>
+        <div class="profile-desc">口ぐせ改善コンサルタント<br>長野県佐久市在住</div>
+      </div>
+      <div>
+        <div class="seminar-title">セミナー・セッションのご案内</div>
+        <div class="seminar-desc">オンラインセミナー：<br>毎週水曜日 10:00〜<br>土曜日 10:00〜<br>口ぐせセッション（個別）も是非ご検討ください</div>
+      </div>
+    </div>`;
+
+  app.innerHTML = `
+    <div class="report-date">診断日：${today}</div>
+    <div class="report-header">
+      <div class="type-label">あなたのタイプ</div>
+      <div class="type-name">${d.emoji} ${d.title}</div>
+      <div class="type-catch">${d.catch}</div>
     </div>
+    ${statsHTML}
+    ${top3HTML}
+    ${rephraseHTML}
+    ${selfHTML}
+    ${scriptHTML}
+    ${practiceHTML}
+    ${discHTML}
+    ${profileHTML}
+    <div class="report-footer">口ぐせを変えると、人生が変わる　― DISC別口ぐせ診断</div>
     <button class="restart-btn" onclick="restart()">🔄 もう一度診断する</button>
   `;
-  app.innerHTML = html;
 }
 
 function restart() {
-  scores = { D: 0, I: 0, S: 0, C: 0 };
-  currentQ = 0; phase = "main"; selectedChoice = null; tieKey = null;
+  scores = { D:0, I:0, S:0, C:0 };
+  currentQ = 0; phase = "main"; selectedChoice = null; tbQueue = []; tbScores = { D:0, I:0, S:0, C:0 };
   render();
 }
 
