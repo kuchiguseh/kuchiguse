@@ -293,8 +293,53 @@ const SYSTEM_PROMPT = `あなたは「口ぐせセラピスト」大石ゆうじ
 ・一度に多くを変えようとせず、まず一つの言葉から始めることを勧める
 ・返答は300文字程度にまとめ、読みやすく改行を入れる`;
 
-// ── 会話履歴 ──────────────────────────────────────
-const history = [];
+// ── APIキー（ローカル保存）────────────────────
+function getApiKey() {
+  return localStorage.getItem('anthropic_api_key') || '';
+}
+
+function saveApiKey(key) {
+  localStorage.setItem('anthropic_api_key', key);
+}
+
+// ── APIキー設定画面 ───────────────────────────
+function showApiKeySetup() {
+  const chatArea = document.getElementById('chatArea');
+  const div = document.createElement('div');
+  div.id = 'apikey-setup';
+  div.style.cssText = 'background:white;border:1.5px solid #c8a96e;border-radius:16px;padding:20px;margin:10px 0;';
+  div.innerHTML = `
+    <p style="font-size:13px;color:#3d2b1a;margin-bottom:12px;">
+      🔑 <strong>APIキーを入力してください</strong><br>
+      <span style="font-size:11px;color:#7a6a52;">
+        👉 <a href="https://platform.claude.com/settings/keys" target="_blank" style="color:#c8a96e;">こちら</a>でAPIキーを取得してここに貼り付けてください。<br>
+        キーはこのブラウザにのみ保存され、外部には送信されません。
+      </span>
+    </p>
+    <div style="display:flex;gap:8px;">
+      <input type="password" id="apiKeyInput" placeholder="sk-ant-api03-..." 
+        style="flex:1;padding:8px 12px;border:1px solid #ddd;border-radius:20px;font-size:13px;outline:none;">
+      <button onclick="submitApiKey()" 
+        style="background:linear-gradient(135deg,#c8a96e,#8b4513);color:white;border:none;border-radius:20px;padding:8px 16px;cursor:pointer;font-size:13px;">
+        保存
+      </button>
+    </div>
+  `;
+  chatArea.appendChild(div);
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+function submitApiKey() {
+  const input = document.getElementById('apiKeyInput');
+  const key = input.value.trim();
+  if (!key.startsWith('sk-ant-')) {
+    alert('正しいAPIキーを入力してください（sk-ant-で始まります）');
+    return;
+  }
+  saveApiKey(key);
+  document.getElementById('apikey-setup').remove();
+  addMessage('ai', 'APIキーを保存しました！🌸 それでは話しかけてみてください。');
+}
 
 // ── メッセージ送信 ────────────────────────────────
 async function sendMessage() {
@@ -303,21 +348,19 @@ async function sendMessage() {
   const text = input.value.trim();
   if (!text || sendBtn.disabled) return;
 
-  // サジェストを非表示
-  document.getElementById('suggestions').style.display = 'none';
+  // APIキー確認
+  const apiKey = getApiKey();
+  if (!apiKey) {
+    showApiKeySetup();
+    return;
+  }
 
-  // ユーザーメッセージ表示
+  document.getElementById('suggestions').style.display = 'none';
   addMessage('user', text);
   input.value = '';
   autoResize(input);
-
-  // 送信ボタン無効化
   sendBtn.disabled = true;
-
-  // タイピングインジケーター
   const typingId = showTyping();
-
-  // 履歴に追加
   history.push({ role: 'user', content: text });
 
   try {
@@ -325,12 +368,12 @@ async function sendMessage() {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-api-key': ['sk-ant-api03-EUH7lO85dIcDhjywsBFkQIku1aJwWlGK9Jo08RRnYTF1', 'wzynuyA092mSZeHBZAeXEG31aJngkw8W2q0xOYyT9w-R1ufNwAA'].join(''),
+        'x-api-key': apiKey,
         'anthropic-version': '2023-06-01',
         'anthropic-dangerous-direct-browser-access': 'true'
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-6',
+        model: 'claude-haiku-4-5-20251001',
         max_tokens: 1024,
         system: SYSTEM_PROMPT,
         messages: history
@@ -341,20 +384,25 @@ async function sendMessage() {
 
     if (!response.ok) {
       const err = await response.json().catch(() => ({}));
+      if (response.status === 401) {
+        localStorage.removeItem('anthropic_api_key');
+        throw new Error('APIキーが無効です。再度入力してください。');
+      }
       throw new Error(err.error?.message || `HTTP ${response.status}`);
     }
 
     const data = await response.json();
     const reply = data.content?.[0]?.text || '（返答を取得できませんでした）';
-
     history.push({ role: 'assistant', content: reply });
     addMessage('ai', reply);
 
   } catch (e) {
     removeTyping(typingId);
     addMessage('ai', `エラーが発生しました。\n${e.message}`, true);
-    // エラー時は履歴から最後のユーザー発言を除く
     history.pop();
+    if (e.message.includes('APIキーが無効')) {
+      showApiKeySetup();
+    }
   }
 
   sendBtn.disabled = false;
