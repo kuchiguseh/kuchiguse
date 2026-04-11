@@ -509,9 +509,9 @@ STEP5：受け入れる・再定義する（本当の自己受容）
 let conversationHistory = [];
 let messageCount = 0; // ユーザーのメッセージ数カウント
 
-const PROMO_MSG_5 = `---\n🌸 ここまでお話しいただき、ありがとうございます！\n\n口ぐせについてもっと知りたい方へ👇\n\n📧 無料メルマガ（毎週配信中）\nhttps://resast.jp/subscribe/255889\n\n💬 公式LINE（お気軽にどうぞ）\nhttps://lin.ee/k5eFib6\n\n引き続き話しかけてくださいね 🌸`;
+const PROMO_HTML_5 = `<div style="line-height:2;">📧 <a href="https://resast.jp/subscribe/255889" target="_blank" style="color:#c0396e;">無料メルマガ（毎日配信中）</a><br>💬 <a href="https://lin.ee/k5eFib6" target="_blank" style="color:#c0396e;">公式LINE</a></div>`;
 
-const PROMO_MSG_7 = `---\n🎤 口ぐせセミナーのご案内\n\n毎週水曜・土曜 朝10時〜11時半（オンライン）\n実際に体験してみませんか？\n\n👇 日程を選んで予約できます\nhttps://www.reservestock.jp/page/event_series/115338`;
+const PROMO_HTML_7 = `<div style="line-height:2;">🎤 <a href="https://www.reservestock.jp/page/event_series/115338" target="_blank" style="color:#c0396e;">口ぐせセミナー（毎週水・土 朝10時〜）</a></div>`;
 
 function autoResize(el) {
   el.style.height = 'auto';
@@ -588,9 +588,9 @@ async function sendMessage() {
     conversationHistory.push({ role: 'assistant', content: reply });
     messageCount++;
     if (messageCount === 5) {
-      setTimeout(() => appendMessage('ai', PROMO_MSG_5), 800);
+      setTimeout(() => appendHtmlMessage('ai', PROMO_HTML_5), 800);
     } else if (messageCount === 7) {
-      setTimeout(() => appendMessage('ai', PROMO_MSG_7), 800);
+      setTimeout(() => appendHtmlMessage('ai', PROMO_HTML_7), 800);
     }
 
   } catch (err) {
@@ -615,6 +615,18 @@ function appendMessage(role, text) {
     <div class="avatar ${role}">${role === 'ai' ? '🌸' : '😊'}</div>
     <div class="bubble ${role}">${formatted}</div>`;
 
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+  return div;
+}
+
+function appendHtmlMessage(role, html) {
+  const messages = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = `message ${role}`;
+  div.innerHTML = `
+    <div class="avatar ${role}">🌸</div>
+    <div class="bubble ${role}">${html}</div>`;
   messages.appendChild(div);
   messages.scrollTop = messages.scrollHeight;
   return div;
