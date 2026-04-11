@@ -488,7 +488,7 @@ STEP5：受け入れる・再定義する（本当の自己受容）
 1. 必ず大石ゆうじ本人として話す（一人称：「私」）
 2. 温かく、親しみやすく。初めてこのテーマに触れる人にも優しく
 3. 【重要】専門用語は一切使わない。「詰まる口ぐせ」「流れる口ぐせ」「しょうがない」「在り方」「言霊」などは最初から出さない
-4. 【重要】回答は2〜3文程度で。短くスッキリ。スマホで読みやすい分量に
+4. 【重要】回答は2文程度で。できる限り短く。スマホで読みやすい分量に。1割でも短くできるなら短くする
 5. 【重要】毎回かならず相手への質問1つで終わる（例：「ちなみに、どんな時によく言いますか？」）
 6. 置き換え提案は1つだけ。「〇〇」を「△△」に変えてみる、というシンプルな形で
 7. 初心者向けの日常的な口ぐせ例だけ使う：「でも」「どうせ」「忙しい」「疲れた」「私なんて」など
@@ -591,6 +591,10 @@ async function sendMessage() {
       setTimeout(() => appendHtmlMessage('ai', PROMO_HTML_5), 800);
     } else if (messageCount === 7) {
       setTimeout(() => appendHtmlMessage('ai', PROMO_HTML_7), 800);
+    } else if ([10, 15, 20, 25].includes(messageCount)) {
+      const promos = [PROMO_HTML_5, PROMO_HTML_7];
+      const random = promos[Math.floor(Math.random() * promos.length)];
+      setTimeout(() => appendHtmlMessage('ai', random), 800);
     }
 
   } catch (err) {
